@@ -10,13 +10,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     
-    
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var switchLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -54,7 +54,22 @@ class ViewController: UIViewController {
     }
     
     
-
+    @IBAction func switchAction(_ sender: UISwitch) {
+        
+        segmentedControl.isHidden = !segmentedControl.isHidden
+        resultLabel.isHidden = !resultLabel.isHidden
+        slider.isHidden = !slider.isHidden
+        textField.isHidden = !textField.isHidden
+        doneButton.isHidden = !doneButton.isHidden
+        datePicker.isHidden = !datePicker.isHidden
+        
+        if sender.isOn {
+            switchLabel.text = "Скрыть все элементы"
+        } else {
+            switchLabel.text = "Отобразить все элементы"
+        }
+    }
+    
     
 }
 

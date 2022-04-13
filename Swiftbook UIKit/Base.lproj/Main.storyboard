@@ -83,25 +83,46 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-Of-2yD">
+                                        <rect key="frame" x="316" y="833" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="xtf-z5-HjL"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скрыть все элементы" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVu-Ef-HWN">
+                                        <rect key="frame" x="47" y="826" width="246" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="N3W-H4-jfG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3Sc-Zp-Gvk" firstAttribute="centerX" secondItem="bJO-UK-Xqw" secondAttribute="centerX" id="ApM-FY-Hnd"/>
                                     <constraint firstAttribute="trailing" secondItem="3Sc-Zp-Gvk" secondAttribute="trailing" constant="76" id="GGg-Ll-hV7"/>
                                     <constraint firstItem="bJO-UK-Xqw" firstAttribute="top" secondItem="3Sc-Zp-Gvk" secondAttribute="bottom" constant="53" id="Lyc-2g-upD"/>
+                                    <constraint firstItem="5WT-Of-2yD" firstAttribute="top" secondItem="6cc-uc-sfK" secondAttribute="bottom" constant="69.5" id="NTD-u6-ZtD"/>
                                     <constraint firstItem="3Sc-Zp-Gvk" firstAttribute="leading" secondItem="FGE-mF-OSg" secondAttribute="leading" constant="77" id="O7K-GR-cRb"/>
                                     <constraint firstItem="jqz-ay-iFD" firstAttribute="centerX" secondItem="FGE-mF-OSg" secondAttribute="centerX" id="Ons-Ef-hRk"/>
                                     <constraint firstAttribute="trailing" secondItem="6cc-uc-sfK" secondAttribute="trailing" constant="47" id="QNE-CI-H9U"/>
                                     <constraint firstItem="jqz-ay-iFD" firstAttribute="top" secondItem="FGE-mF-OSg" secondAttribute="top" constant="26" id="V1r-68-gK7"/>
                                     <constraint firstItem="JAG-TD-hmW" firstAttribute="centerX" secondItem="FGE-mF-OSg" secondAttribute="centerX" constant="0.5" id="YLp-Wf-B0m"/>
+                                    <constraint firstAttribute="bottom" secondItem="5WT-Of-2yD" secondAttribute="bottom" constant="258" id="ZaI-uG-vBn"/>
                                     <constraint firstItem="6cc-uc-sfK" firstAttribute="centerX" secondItem="FGE-mF-OSg" secondAttribute="centerX" id="Znc-E7-V0R"/>
                                     <constraint firstItem="3Sc-Zp-Gvk" firstAttribute="top" secondItem="jqz-ay-iFD" secondAttribute="bottom" constant="83" id="a2R-Su-psz"/>
+                                    <constraint firstItem="QVu-Ef-HWN" firstAttribute="leading" secondItem="FGE-mF-OSg" secondAttribute="leading" constant="47" id="cBP-ba-uEd"/>
+                                    <constraint firstAttribute="bottom" secondItem="QVu-Ef-HWN" secondAttribute="bottom" constant="252" id="dcL-d9-0bI"/>
                                     <constraint firstItem="JAG-TD-hmW" firstAttribute="leading" secondItem="bJO-UK-Xqw" secondAttribute="trailing" constant="-261" id="fUa-XC-tkP"/>
                                     <constraint firstItem="TE4-fZ-fzG" firstAttribute="centerX" secondItem="FGE-mF-OSg" secondAttribute="centerX" constant="0.5" id="igm-9q-37l"/>
                                     <constraint firstItem="TE4-fZ-fzG" firstAttribute="top" secondItem="JAG-TD-hmW" secondAttribute="bottom" constant="90" id="kIY-cm-3Pf"/>
-                                    <constraint firstAttribute="bottom" secondItem="6cc-uc-sfK" secondAttribute="bottom" constant="349" id="oKv-Je-3KO"/>
+                                    <constraint firstAttribute="trailing" secondItem="5WT-Of-2yD" secondAttribute="trailing" constant="49" id="pmY-MZ-ZPz"/>
+                                    <constraint firstItem="5WT-Of-2yD" firstAttribute="leading" secondItem="QVu-Ef-HWN" secondAttribute="trailing" constant="23" id="qc9-f6-cOJ"/>
                                     <constraint firstItem="6cc-uc-sfK" firstAttribute="top" secondItem="TE4-fZ-fzG" secondAttribute="bottom" constant="100" id="tKQ-eW-J8G"/>
                                     <constraint firstItem="JAG-TD-hmW" firstAttribute="top" secondItem="bJO-UK-Xqw" secondAttribute="bottom" constant="82" id="tW2-Rb-8sH"/>
                                     <constraint firstItem="bJO-UK-Xqw" firstAttribute="centerX" secondItem="FGE-mF-OSg" secondAttribute="centerX" constant="0.5" id="tgR-pa-EZ4"/>
+                                    <constraint firstItem="QVu-Ef-HWN" firstAttribute="top" secondItem="6cc-uc-sfK" secondAttribute="bottom" constant="62.5" id="w2W-OI-mTK"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="96R-ih-Coi"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="TFH-Fw-5o3"/>
@@ -118,9 +139,12 @@
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
+                        <outlet property="datePicker" destination="6cc-uc-sfK" id="riG-i5-Kdu"/>
+                        <outlet property="doneButton" destination="TE4-fZ-fzG" id="L8h-Kg-9EA"/>
                         <outlet property="resultLabel" destination="3Sc-Zp-Gvk" id="6RO-kK-3uU"/>
                         <outlet property="segmentedControl" destination="jqz-ay-iFD" id="prA-tR-C3j"/>
                         <outlet property="slider" destination="bJO-UK-Xqw" id="5sx-qs-DVt"/>
+                        <outlet property="switchLabel" destination="QVu-Ef-HWN" id="6Og-tt-fHv"/>
                         <outlet property="textField" destination="JAG-TD-hmW" id="36b-Bd-k0W"/>
                     </connections>
                 </viewController>
