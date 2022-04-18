@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var switchLabel: UILabel!
     
+    let elements = ["UISegmentedControl", "UILabel", "UISlider", "UIDoneButton", "UIPicker", "UISwitch", "Показать все"]
+    
+    var selectedElement: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,44 @@ class ViewController: UIViewController {
         slider.value = 30
         
         resultLabel.text = String(slider.value)
+        
+        choiceUIElement()
+        createToolbar()
+    }
+    
+    
+    func createToolbar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButtonPicker = UIBarButtonItem(title: "done",
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(dismisKeyboard))
+
+        toolbar.setItems([doneButtonPicker], animated:  true)
+        toolbar.isUserInteractionEnabled = true
+        
+        textField.inputAccessoryView = toolbar
+    }
+    
+    @objc func dismisKeyboard(){
+        view.endEditing(true)
+    }
+    
+    
+    func choiceUIElement(){
+        let elementPicker = UIPickerView()
+        elementPicker.delegate = self
+        textField.inputView = elementPicker
+    }
+    
+    func hideAllElements(){
+        segmentedControl.isHidden = true
+        resultLabel.isHidden = true
+        slider.isHidden = true
+        doneButton.isHidden = true
+        datePicker.isHidden = true
+        switchLabel.isHidden = true
     }
 
     
@@ -73,3 +115,52 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       return elements.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return elements[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedElement = elements[row]
+        textField.text = selectedElement
+        
+        switch row {
+        case 0:
+            hideAllElements()
+            segmentedControl.isHidden = false
+        case 1:
+            hideAllElements()
+            resultLabel.isHidden = false
+        case 2:
+            hideAllElements()
+            slider.isHidden = false
+        case 3:
+            hideAllElements()
+            doneButton.isHidden = false
+        case 4:
+            hideAllElements()
+            datePicker.isHidden = false
+        case 5:
+            hideAllElements()
+            switchLabel.isHidden = false
+        case 6:
+            hideAllElements()
+            segmentedControl.isHidden = false
+            resultLabel.isHidden = false
+            slider.isHidden = false
+            doneButton.isHidden = false
+            datePicker.isHidden = false
+            switchLabel.isHidden = false
+        default:
+            break
+        }
+    }
+}
